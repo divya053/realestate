@@ -1,4 +1,3 @@
-# property-service/routes.py
 from fastapi import APIRouter, HTTPException, Depends
 from sqlalchemy.orm import Session
 from property_service.models import Property, Base
