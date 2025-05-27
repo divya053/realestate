@@ -1,8 +1,8 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
-from auth_service.models import User, OTP, Base
-from auth_service.schemas import UserCreate, Token, OTPRequest, OTPVerify, Role
-from auth_service.utils import hash_password, verify_password, create_access_token
+from models import User, OTP, Base
+from schemas import UserCreate, Token, OTPRequest, OTPVerify, Role
+from utils import hash_password, verify_password, create_access_token
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 import random
