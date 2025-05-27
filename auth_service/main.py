@@ -1,8 +1,8 @@
 
 from fastapi import FastAPI
-from auth_service.routes import router
-from auth_service.models import Base
-from auth_service.routes import engine
+from routes import router
+from models import Base
+from routes import engine
 from fastapi.middleware.cors import CORSMiddleware
 
 
