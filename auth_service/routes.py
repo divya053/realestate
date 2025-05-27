@@ -9,7 +9,6 @@ import random
 
 router = APIRouter()
 
-# Database
 SQLALCHEMY_DATABASE_URL = 'sqlite:///./auth.db'
 engine = create_engine(SQLALCHEMY_DATABASE_URL, connect_args={'check_same_thread': False})
 SessionLocal = sessionmaker(bind=engine, autoflush=False, autocommit=False)
@@ -38,7 +37,6 @@ def send_otp(req: OTPRequest, db: Session = Depends(get_db)):
     db_otp = OTP(email=req.email, code=code)
     db.add(db_otp)
     db.commit()
-    # Simulate email
     print(f"Sent OTP {code} to {req.email}")
     return {'message': 'OTP sent'}
 
@@ -57,7 +55,6 @@ def login(user: UserCreate, db: Session = Depends(get_db)):
     token = create_access_token({'sub': db_user.email, 'role': db_user.role})
     return {'access_token': token}
 
-# Role-based dependency
 from fastapi.security import OAuth2PasswordBearer
 from jose import jwt, JWTError
 
