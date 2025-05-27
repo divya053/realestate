@@ -16,5 +16,4 @@ app.add_middleware(
 )
 app.include_router(router, prefix="/auth")
 
-# Ensure DB and tables are created
 Base.metadata.create_all(bind=engine)
